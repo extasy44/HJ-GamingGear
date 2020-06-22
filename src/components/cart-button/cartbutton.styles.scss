@@ -1,0 +1,23 @@
+.cart-button {
+  display: inline-flex;
+  position: relative;
+  height: 50px;
+  padding: 15px;
+  border-radius: 2px;
+  width: 200px;
+  background-color: orange;
+  cursor: pointer;
+
+  .cart-count {
+    position: absolute;
+    width: 200px;
+    top: 3px;
+    left: 60%;
+  }
+  .cart-link {
+    position: absolute;
+    width: 200px;
+    top: 22px;
+    left: 25%;
+  }
+}

@@ -1,0 +1,22 @@
+.navi-container {
+  width: 100%;
+  display: flex;
+  background-color: #e7520d;
+  margin: auto;
+  color: #fff;
+  padding: 0;
+}
+
+.site-link {
+  display: inline-flex;
+  font-size: 18px;
+  border-right: 2px solid rgb(221, 106, 11);
+  padding: 0 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+  vertical-align: center;
+
+  &:hover {
+    color: black;
+  }
+}

@@ -1,0 +1,38 @@
+$main-color1: #f1b892;
+
+.main-header {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+
+  .logo-container {
+    height: 100%;
+
+    padding: 25px;
+
+    img {
+      height: 70px;
+    }
+  }
+
+  .search-container {
+    display: inline-flex;
+    height: 100%;
+    padding: 25px;
+    flex-grow: 2;
+  }
+
+  .options {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .option {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  }
+}
