@@ -5,7 +5,7 @@ import "./footer.styles.scss";
 class Footer extends React.Component {
   renderContents() {
     return (
-      <div>
+      <div className="footer-container">
         <div className="footer-column">
           <h3>Services</h3>
           <ul className="footer-column-item">
@@ -18,19 +18,19 @@ class Footer extends React.Component {
         <div className="footer-column">
           <h3>Customers</h3>
           <ul className="footer-column-item">
-            <li>Technical Services</li>
-            <li>Returns and Warranty</li>
-            <li>Terms and Conditions</li>
-            <li>Privacy Policies</li>
+            <li>My Account</li>
+            <li>Payment Methods</li>
+            <li>FAQs</li>
+            <li>Shipping Information</li>
           </ul>
         </div>
         <div className="footer-column">
           <h3>About Us</h3>
           <ul className="footer-column-item">
-            <li>Technical Services</li>
-            <li>Returns and Warranty</li>
-            <li>Terms and Conditions</li>
-            <li>Privacy Policies</li>
+            <li>Contact Details</li>
+            <li>Store Locations</li>
+            <li>Trading Hours</li>
+            <li>Careers</li>
           </ul>
         </div>
         <div className="footer-column">

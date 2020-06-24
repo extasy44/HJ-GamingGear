@@ -12,7 +12,7 @@ a {
   text-decoration: none;
   color: black;
 
-  &hover {
+  &:hover {
     text-decoration: none;
   }
 }
@@ -28,9 +28,17 @@ ul {
   margin-block-end: 1em;
 }
 
+h1 {
+  color: orange;
+}
+
 .App {
   max-width: 1600px;
   margin: 0 auto;
+
+  @media only screen and (max-width: 899px) {
+    margin-top: 100px;
+  }
 }
 
 // @media (prefers-reduced-motion: no-preference) {

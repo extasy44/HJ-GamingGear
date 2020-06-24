@@ -11,6 +11,7 @@ class ProductDetailPage extends React.Component {
 
     this.state = {
       currentlyViewingProduct: null,
+      isLoading: true,
     };
   }
 
@@ -20,12 +21,15 @@ class ProductDetailPage extends React.Component {
       (item) => item.id === Number(productId)
     );
 
-    this.setState({ currentlyViewingProduct: currentProduct });
+    this.setState({
+      currentlyViewingProduct: currentProduct,
+      isLoading: false,
+    });
   };
 
   renderContent() {
     const product = this.state.currentlyViewingProduct;
-
+    console.log(product);
     return (
       <div>
         <ProductDetails {...product} />

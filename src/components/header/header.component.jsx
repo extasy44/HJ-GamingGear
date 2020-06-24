@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import "./header.styles.scss";
 import SearchBar from "../searchbar/searchbar.component";
 import CartButton from "../cart-button/cartbutton.component";
-import CartPreview from "../cart-preview/cart-preview.component";
 
 const Header = ({ hidden }) => {
   return (

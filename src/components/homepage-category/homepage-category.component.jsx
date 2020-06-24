@@ -1,29 +1,25 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { selectCategorySections } from "../../redux/categories/categories.selector";
 
 import "./homepage-category.styles.scss";
-import SHOP_DATA from "../../data/shop.data";
 
 import CategoryItem from "../category-item/category-item.component";
 
-class HomepageCategory extends React.Component {
-  constructor() {
-    super();
+const HomepageCategory = ({ categories }) => {
+  return (
+    <div className="category-menu">
+      {categories.map(({ id, ...otherCategoryProps }) => (
+        <CategoryItem key={id} id={id} {...otherCategoryProps} />
+      ))}
+    </div>
+  );
+};
 
-    this.state = {
-      sections: SHOP_DATA.sections,
-    };
-  }
+const mapStateToProps = createStructuredSelector({
+  categories: selectCategorySections,
+});
 
-  render() {
-    console.log(this.state.sections);
-    return (
-      <div className="category-menu">
-        {this.state.sections.map(({ id, ...otherSecrionProps }) => (
-          <CategoryItem key={id} id={id} {...otherSecrionProps} />
-        ))}
-      </div>
-    );
-  }
-}
-
-export default HomepageCategory;
+export default connect(mapStateToProps)(HomepageCategory);

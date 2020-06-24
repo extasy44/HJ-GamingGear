@@ -1,6 +1,18 @@
-.category-grid-view {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 5;
+.category-list-wrapper {
+  .category-title {
+    margin: 20px;
+  }
+
+  .categry-toolbar {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .category-grid-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: center;
+  }
 }

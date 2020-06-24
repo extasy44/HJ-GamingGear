@@ -10,6 +10,7 @@ import "./product-details.styles.scss";
 const ProductDetails = ({
   id,
   ImageURL,
+  category,
   name,
   sku,
   price,
@@ -18,7 +19,17 @@ const ProductDetails = ({
   partnumber,
   addItem,
 }) => {
-  const product = { id, ImageURL, name, sku, price, stock };
+  const product = {
+    ImageURL,
+    category,
+    id,
+    name,
+    sku,
+    price,
+    stock,
+    partnumber,
+    stock,
+  };
   return (
     <div className="product-details-wrapper">
       <div className="image-wrapper">

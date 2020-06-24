@@ -1,24 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
-import { toggleCartHidden } from "../../redux/cart/cart.actions";
+import { createStructuredSelector } from "reselect";
 
 import "./cartbutton.styles.scss";
+import { Cart } from "react-bootstrap-icons";
 
-const CartButton = ({ toggleCartHidden }) => {
+import {
+  selectCartItemsCount,
+  selectCartTotal,
+} from "../../redux/cart/cart.selectors";
+import { clearCart } from "../../redux/cart/cart.actions";
+
+const CartButton = ({ cartItemCount, totalAmount, clearCart }) => {
   return (
-    <Link to="/checkout/">
-      <div className="cart-button" onClick={toggleCartHidden}>
-        <div className="cart-count">1 : Item(s)</div>
-        <div className="cart-link">View Cart/Checkout</div>
-      </div>
-    </Link>
+    <div className="header-cart-wrapper">
+      <Link to="/checkout/">
+        <div className="cart-button">
+          <div className="cart-count">
+            {!cartItemCount ? 0 : cartItemCount} Item(s) || $
+            {totalAmount === 0 ? 0 : totalAmount}
+          </div>
+          <div className="cart-link">View Cart / Checkout</div>
+        </div>
+      </Link>
+      <Cart className="cart-icon" onClick={clearCart} color="black" size={35} />
+    </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden()),
+const mapStateToProps = createStructuredSelector({
+  cartItemCount: selectCartItemsCount,
+  totalAmount: selectCartTotal,
 });
 
-export default connect(null, mapDispatchToProps)(CartButton);
+const mapDispatchToProps = (dispatch) => ({
+  clearCart: () => dispatch(clearCart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartButton);
