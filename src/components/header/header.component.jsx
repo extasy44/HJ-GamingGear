@@ -8,7 +8,7 @@ import CartButton from "../cart-button/cartbutton.component";
 
 const Header = ({ hidden }) => {
   return (
-    <div>
+    <div className="header-wrapper">
       <div className="main-header">
         <div className="logo-container">
           <Link to="/">

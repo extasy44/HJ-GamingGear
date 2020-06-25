@@ -10,12 +10,11 @@ import {
   selectCartItemsCount,
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
-import { clearCart } from "../../redux/cart/cart.actions";
 
-const CartButton = ({ cartItemCount, totalAmount, clearCart }) => {
+const CartButton = ({ cartItemCount, totalAmount }) => {
   return (
-    <div className="header-cart-wrapper">
-      <Link to="/checkout/">
+    <Link to="/checkout/">
+      <div className="header-cart-wrapper">
         <div className="cart-button">
           <div className="cart-count">
             {!cartItemCount ? 0 : cartItemCount} Item(s) || $
@@ -23,9 +22,10 @@ const CartButton = ({ cartItemCount, totalAmount, clearCart }) => {
           </div>
           <div className="cart-link">View Cart / Checkout</div>
         </div>
-      </Link>
-      <Cart className="cart-icon" onClick={clearCart} color="black" size={35} />
-    </div>
+
+        <Cart className="cart-icon" color="black" size={35} />
+      </div>
+    </Link>
   );
 };
 
@@ -34,8 +34,4 @@ const mapStateToProps = createStructuredSelector({
   totalAmount: selectCartTotal,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  clearCart: () => dispatch(clearCart()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CartButton);
+export default connect(mapStateToProps)(CartButton);

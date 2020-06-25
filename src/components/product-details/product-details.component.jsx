@@ -40,10 +40,8 @@ const ProductDetails = ({
       </div>
       <div className="product-info">
         <h1 className="product-name">{name}</h1>
-        <div className="product-partnumber">
-          Part No : {partnumber} , SKU : {sku}
-        </div>
-        <div className="product-price">{price}</div>
+        <div className="product-partnumber">Part No : {partnumber}</div>
+        <div className="product-price">${price}</div>
         <div className="product-stock">
           Availiablility : <span>{stock}</span>
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { compose } from "redux";
 import * as _ from "lodash";
 
 import ProductsData from "../../data/products.data";
@@ -10,7 +9,7 @@ import { selectCategorySections } from "../../redux/categories/categories.select
 
 import CategoryProductList from "../../components/category-product-list/category-product-list.component";
 import QuickSearch from "../../components/quick-search/quick-search.component";
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
+import { Spinner } from "../../components/with-spinner/with-spinner.component";
 import CategorySort from "../../components/category-sort/category-sort.component";
 
 import "./categorypage.styles.scss";
@@ -34,6 +33,9 @@ class CategoryPage extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.setState({
+        isLoading: true,
+      });
       setTimeout(() => this.setInitialState(), 300);
     }
   }
@@ -85,7 +87,9 @@ class CategoryPage extends React.Component {
   }
 
   render() {
-    return (
+    return this.state.isLoading ? (
+      <Spinner />
+    ) : (
       <div className="category-list-wrapper">
         <h1 className="category-title">{this.state.category.title}</h1>
         <div className="categry-toolbar">
@@ -102,4 +106,4 @@ const mapStateToProps = createStructuredSelector({
   categories: selectCategorySections,
 });
 
-export default compose(connect(mapStateToProps), WithSpinner)(CategoryPage);
+export default connect(mapStateToProps)(CategoryPage);

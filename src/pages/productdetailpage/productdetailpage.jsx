@@ -6,35 +6,25 @@ import "./productdetailpage.styles.scss";
 import ProductDetails from "../../components/product-details/product-details.component";
 
 class ProductDetailPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentlyViewingProduct: null,
-      isLoading: true,
-    };
-  }
+  state = {
+    currentlyViewingProduct: null,
+    loading: true,
+  };
 
   componentDidMount = () => {
     const productId = this.props.match.params.id;
     const currentProduct = ProductsData.find(
       (item) => item.id === Number(productId)
     );
-
     this.setState({
       currentlyViewingProduct: currentProduct,
-      isLoading: false,
+      loading: false,
     });
   };
 
   renderContent() {
     const product = this.state.currentlyViewingProduct;
-    console.log(product);
-    return (
-      <div>
-        <ProductDetails {...product} />
-      </div>
-    );
+    return <ProductDetails {...product} />;
   }
 
   render() {

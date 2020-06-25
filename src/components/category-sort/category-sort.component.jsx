@@ -6,6 +6,7 @@ import "./category-sort.styles.scss";
 const options = [
   { value: "name", label: "Name" },
   { value: "price", label: "Price" },
+  { value: "partnumber", label: "PartNo" },
 ];
 
 class CategorySort extends React.Component {
@@ -28,6 +29,7 @@ class CategorySort extends React.Component {
         value={selectedOption}
         onChange={this.handleChange}
         options={options}
+        placeholder="Sort by"
       />
     );
   }

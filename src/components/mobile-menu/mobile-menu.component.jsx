@@ -16,7 +16,12 @@ const MobileMenu = ({ open, categories, dispatch }) => {
 
   return (
     <div className="mobile-menu" style={toggle}>
+      <div className="mobile-menu-close" onClick={() => dispatch(toggleMenu())}>
+        Close
+      </div>
+
       <ul className="site-nav">
+        <div className="mobile-menu-title">MENU</div>
         {categories.map(({ title, url, id }) => {
           let path = `/category/${id}/${url}`;
           return (
