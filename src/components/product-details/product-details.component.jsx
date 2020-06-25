@@ -28,7 +28,6 @@ const ProductDetails = ({
     price,
     stock,
     partnumber,
-    stock,
   };
   return (
     <div className="product-details-wrapper">
