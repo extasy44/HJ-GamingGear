@@ -1,48 +1,87 @@
 $main-color1: #f1b892;
 .header-wrapper {
-  overflow: hidden;
+  display: block;
   position: relative;
+  transition: all 0.2s ease;
 
-  .main-header {
-    height: 120px;
+  @media only screen and (max-width: 899px) {
+    display: none;
+  }
+
+  .header-top {
+    position: fixed;
+    z-index: 99;
+    background-color: white;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    position: -webkit-sticky;
-    position: sticky;
     top: 0;
+    max-width: 1600px;
 
-    @media only screen and (max-width: 899px) {
-      display: none;
-    }
+    &.compressed {
+      .main-header {
+        height: 80px;
+        transition: all 0.2s ease;
+        .logo-container {
+          padding: 5px 25px;
+        }
 
-    .logo-container {
-      height: 100%;
+        .search-container {
+          padding: 5px 25px;
+        }
 
-      padding: 25px;
-
-      img {
-        height: 70px;
+        .options {
+          .option {
+            padding: 0px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          }
+        }
       }
     }
 
-    .search-container {
-      display: inline-flex;
-      height: 100%;
-      padding: 25px;
-      flex-grow: 2;
-    }
-
-    .options {
-      height: 100%;
+    .main-header {
+      height: 120px;
+      width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
+      top: 0;
 
-      .option {
-        padding: 10px 15px;
-        cursor: pointer;
+      .logo-container {
+        height: 100%;
+
+        padding: 25px;
+
+        img {
+          height: 70px;
+        }
+      }
+
+      .search-container {
+        display: inline-flex;
+        height: 100%;
+        padding: 25px;
+        flex-grow: 2;
+      }
+
+      .options {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .option {
+          padding: 10px 15px;
+          cursor: pointer;
+        }
       }
     }
+  }
+}
+
+.header-placeholder {
+  width: 100%;
+  height: 160px;
+  background-color: black;
+  @media only screen and (max-width: 899px) {
+    display: none;
   }
 }
