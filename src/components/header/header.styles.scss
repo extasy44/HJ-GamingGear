@@ -2,7 +2,6 @@ $main-color1: #f1b892;
 .header-wrapper {
   display: block;
   position: relative;
-  transition: all 0.2s ease;
 
   @media only screen and (max-width: 899px) {
     display: none;
@@ -17,9 +16,9 @@ $main-color1: #f1b892;
     max-width: 1600px;
 
     &.compressed {
+      transition: all 0.2s ease;
       .main-header {
         height: 80px;
-        transition: all 0.2s ease;
         .logo-container {
           padding: 5px 25px;
         }
@@ -32,7 +31,6 @@ $main-color1: #f1b892;
           .option {
             padding: 0px 15px;
             cursor: pointer;
-            transition: all 0.2s ease;
           }
         }
       }
@@ -47,7 +45,6 @@ $main-color1: #f1b892;
 
       .logo-container {
         height: 100%;
-
         padding: 25px;
 
         img {

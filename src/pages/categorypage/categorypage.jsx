@@ -28,6 +28,7 @@ class CategoryPage extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     setTimeout(() => this.setInitialState(), 300);
   }
 
@@ -41,13 +42,12 @@ class CategoryPage extends React.Component {
   }
 
   setInitialState = () => {
+    window.scrollTo(0, 0);
     const categoryID = this.props.match.params.id;
 
     const currentCategory = this.props.categories.filter(
       (category) => category.id === Number(categoryID)
     );
-
-    console.log(currentCategory);
 
     const categoryProducts = ProductsData.filter(
       (product) => product.categoryId === Number(categoryID)
@@ -90,7 +90,7 @@ class CategoryPage extends React.Component {
     return this.state.isLoading ? (
       <Spinner />
     ) : (
-      <div className="category-list-wrapper">
+      <div ref={this.myref} className="category-list-wrapper">
         <h1 className="category-title">{this.state.category.title}</h1>
         <div className="categry-toolbar">
           <CategorySort updateSortOption={this.sortProducts} />
