@@ -12,6 +12,7 @@ class ProductDetailPage extends React.Component {
   };
 
   componentDidMount = () => {
+    window.scrollTo(0, 0);
     const productId = this.props.match.params.id;
     const currentProduct = ProductsData.find(
       (item) => item.id === Number(productId)

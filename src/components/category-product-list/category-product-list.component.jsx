@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
 import CustomButton from "../custom-button/custom-button.component";
+import LazyImage from "../lazy-image/lazy-image.component";
 
 import "./category-product-list.styles.scss";
 
@@ -12,17 +13,14 @@ const CategoryProductList = ({ id, product, addItem }) => {
   return (
     <div className="product-container">
       <Link to={productLink} style={{ textDecoration: "none" }}>
-        <div className="product-wrapper">
-          <div
+        <LazyImage className="product-wrapper">
+          <LazyImage
             className="category-product-image"
-            style={{
-              background: `url(${ImageURL}) no-repeat`,
-              backgroundSize: "contain",
-              backgroundPosition: "center center",
-            }}
+            alt={name}
+            src={ImageURL}
           >
             <div className="in-stock">{stock}</div>
-          </div>
+          </LazyImage>
 
           <div className="product-info">
             <div className="name">{name}</div>
@@ -30,7 +28,7 @@ const CategoryProductList = ({ id, product, addItem }) => {
 
             <div className="price">{price}</div>
           </div>
-        </div>
+        </LazyImage>
       </Link>
       <CustomButton className="custom-button" onClick={() => addItem(product)}>
         ADD TO CART

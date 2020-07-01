@@ -29,31 +29,34 @@ const ProductDetails = ({
     stock,
     partnumber,
   };
+
   return (
-    <div className="product-details-wrapper">
-      <div className="image-wrapper">
-        <div
-          className="product-image"
-          style={{ backgroundImage: `url(${ImageURL})` }}
-        ></div>
-      </div>
-      <div className="product-info">
-        <h1 className="product-name">{name}</h1>
-        <div className="product-partnumber">Part No : {partnumber}</div>
-        <div className="product-price">${price}</div>
-        <div className="product-stock">
-          Availiablility : <span>{stock}</span>
+    <div>
+      <div className="product-details-wrapper">
+        <div className="image-wrapper">
+          <div
+            className="product-image"
+            style={{ backgroundImage: `url(${ImageURL})` }}
+          ></div>
         </div>
-        <div className="product-description">
-          <h3>Description</h3>
-          {description}
+        <div className="product-info">
+          <h1 className="product-name">{name}</h1>
+          <div className="product-partnumber">Part No : {partnumber}</div>
+          <div className="product-price">${price}</div>
+          <div className="product-stock">
+            Availiablility : <span>{stock}</span>
+          </div>
+          <div className="product-description">
+            <h3>Description</h3>
+            {description}
+          </div>
+          <CustomButton
+            className="custom-button add-button"
+            onClick={() => addItem(product)}
+          >
+            ADD TO CART
+          </CustomButton>
         </div>
-        <CustomButton
-          className="custom-button add-button"
-          onClick={() => addItem(product)}
-        >
-          ADD TO CART
-        </CustomButton>
       </div>
     </div>
   );
