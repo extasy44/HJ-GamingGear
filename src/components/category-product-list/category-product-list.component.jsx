@@ -13,7 +13,7 @@ const CategoryProductList = ({ id, product, addItem }) => {
   return (
     <div className="product-container">
       <Link to={productLink} style={{ textDecoration: "none" }}>
-        <LazyImage className="product-wrapper">
+        <div className="product-wrapper">
           <LazyImage
             className="category-product-image"
             alt={name}
@@ -28,7 +28,7 @@ const CategoryProductList = ({ id, product, addItem }) => {
 
             <div className="price">{price}</div>
           </div>
-        </LazyImage>
+        </div>
       </Link>
       <CustomButton className="custom-button" onClick={() => addItem(product)}>
         ADD TO CART

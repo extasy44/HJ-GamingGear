@@ -42,10 +42,13 @@ const ProductDetails = ({
         <div className="product-info">
           <h1 className="product-name">{name}</h1>
           <div className="product-partnumber">Part No : {partnumber}</div>
+          <hr />
           <div className="product-price">${price}</div>
+          <hr />
           <div className="product-stock">
             Availiablility : <span>{stock}</span>
           </div>
+          <hr />
           <div className="product-description">
             <h3>Description</h3>
             {description}

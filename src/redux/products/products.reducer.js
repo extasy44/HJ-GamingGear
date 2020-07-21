@@ -2,6 +2,7 @@ import ProductActionTypes from "./products.types";
 
 const INITIAL_STATE = {
   categoryProducts: [],
+  searchKeyword: "",
 };
 
 const productReducer = (state = INITIAL_STATE, action) => {

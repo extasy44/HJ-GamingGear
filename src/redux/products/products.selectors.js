@@ -1,10 +1,13 @@
 import { createSelector } from "reselect";
 
-import ProductsData from "../../data/products.data";
+const selectCurrentProducts = (state) => state.currentProducts;
 
-export const selectCategoryProducts = (id) =>
-  createSelector(ProductsData, (products) =>
-    products
-      ? products.filter((product) => product.categoryId === Number(id))
-      : null
-  );
+export const selectCategoryProducts = createSelector(
+  [selectCurrentProducts],
+  (products) => products.categoryProducts
+);
+
+export const selectedProducts = createSelector(
+  [selectCurrentProducts],
+  (products) => products.selectedProducts
+);

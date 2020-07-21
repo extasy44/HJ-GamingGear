@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import * as _ from "lodash";
 
-import ProductsData from "../../data/products.data";
-
 import { selectCategorySections } from "../../redux/categories/categories.selector";
+import { selectCategoryProducts } from "../../redux/products/products.selectors";
+import { fetchCategoryProducts } from "../../redux/products/products.actions";
 
 import CategoryProductList from "../../components/category-product-list/category-product-list.component";
 import QuickSearch from "../../components/quick-search/quick-search.component";
@@ -29,7 +29,7 @@ class CategoryPage extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    setTimeout(() => this.setInitialState(), 300);
+    this.setInitialState();
   }
 
   componentDidUpdate(prevProps) {
@@ -37,27 +37,26 @@ class CategoryPage extends React.Component {
       this.setState({
         isLoading: true,
       });
-      setTimeout(() => this.setInitialState(), 300);
+      this.setInitialState();
     }
   }
 
   setInitialState = () => {
     window.scrollTo(0, 0);
     const categoryID = this.props.match.params.id;
+    this.props.fetchCategoryProducts(categoryID);
 
-    const currentCategory = this.props.categories.filter(
-      (category) => category.id === Number(categoryID)
-    );
+    setTimeout(() => {
+      const currentCategory = this.props.categories.filter(
+        (category) => category.id === Number(categoryID)
+      );
 
-    const categoryProducts = ProductsData.filter(
-      (product) => product.categoryId === Number(categoryID)
-    );
-
-    this.setState({
-      products: categoryProducts,
-      category: currentCategory[0],
-      isLoading: false,
-    });
+      this.setState({
+        products: this.props.categoryProducts,
+        category: currentCategory[0],
+        isLoading: false,
+      });
+    }, 500);
   };
 
   sortProducts = (key) =>
@@ -92,6 +91,9 @@ class CategoryPage extends React.Component {
     ) : (
       <div ref={this.myref} className="category-list-wrapper">
         <h1 className="category-title">{this.state.category.title}</h1>
+        <p className="category-description">
+          {this.state.category.description}
+        </p>
         <div className="categry-toolbar">
           <CategorySort updateSortOption={this.sortProducts} />
           <QuickSearch handleChange={this.handleChange} />
@@ -104,6 +106,9 @@ class CategoryPage extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   categories: selectCategorySections,
+  categoryProducts: selectCategoryProducts,
 });
 
-export default connect(mapStateToProps)(CategoryPage);
+export default connect(mapStateToProps, { fetchCategoryProducts })(
+  CategoryPage
+);
