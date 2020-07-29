@@ -6,10 +6,9 @@ import * as _ from "lodash";
 import { selectCategoryProducts } from "../../redux/products/products.selectors";
 
 import CategoryProductList from "../../components/category-product-list/category-product-list.component";
-import QuickSearch from "../../components/quick-search/quick-search.component";
-import CategorySort from "../../components/category-sort/category-sort.component";
 
 import { Spinner } from "../../components/with-spinner/with-spinner.component";
+import "../categorypage/categorypage.styles.scss";
 
 class SearchResultPage extends Component {
   constructor(props) {
@@ -64,19 +63,14 @@ class SearchResultPage extends Component {
   }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, products } = this.state;
 
     return isLoading ? (
       <Spinner />
     ) : (
       <div className="category-list-wrapper">
-        <div className="category-grid-view">
-          {this.state.products.length > 0 ? (
-            this.renderProducts()
-          ) : (
-            <h3>No product found!</h3>
-          )}
-        </div>
+        <h3 className="category-title">{products.length} product(s) found</h3>
+        <div className="category-grid-view">{this.renderProducts()}</div>
       </div>
     );
   }

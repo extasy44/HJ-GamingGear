@@ -13,6 +13,12 @@ const productReducer = (state = INITIAL_STATE, action) => {
         categoryProducts: action.payload,
       };
 
+    case ProductActionTypes.SELECT_CATEGORY_PRODUCTS:
+      return {
+        ...state,
+        categoryProducts: action.payload,
+      };
+
     default:
       return state;
   }

@@ -2,18 +2,12 @@ $orange: #f37d10;
 
 .product-container {
   padding: 10px;
-  border: 1px solid #e9e9e9;
   width: 20%;
   margin: -1px 0 0 -1px;
-  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
-    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-
-  &:hover {
-    border-color: orange;
-    z-index: 1;
-  }
 
   .product-wrapper {
+    padding: 10px;
+    border: 1px solid #e9e9e9;
     width: 100%;
     height: 350px;
     display: flex;
@@ -21,6 +15,11 @@ $orange: #f37d10;
     position: relative;
     justify-content: stretch;
     align-items: center;
+
+    &:hover {
+      border-color: orange;
+      z-index: 1;
+    }
 
     .category-product-image {
       width: 100%;
