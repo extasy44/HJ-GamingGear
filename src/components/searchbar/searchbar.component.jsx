@@ -18,8 +18,11 @@ class SearchBar extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.selectProducts(this.state.keyword);
-    this.props.history.push(`/search/${this.state.keyword}`);
+
+    if (this.state.keyword.length >= 1) {
+      this.props.selectProducts(this.state.keyword);
+      this.props.history.push(`/search/${this.state.keyword}`);
+    }
   };
 
   handleChange = (event) => {
@@ -27,8 +30,9 @@ class SearchBar extends React.Component {
       keyword: event.target.value,
     });
 
-    console.log(this.state.keyword.length);
-    if (this.state.keyword.length + 1 >= 2) {
+    console.log(this.state.keyword);
+
+    if (this.state.keyword.length >= 1) {
       this.props.selectProducts(this.state.keyword);
       this.props.history.push(`/search/${this.state.keyword}`);
     }

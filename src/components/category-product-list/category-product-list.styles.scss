@@ -18,7 +18,6 @@ $orange: #f37d10;
 
     &:hover {
       border-color: orange;
-      z-index: 1;
     }
 
     .category-product-image {
@@ -80,5 +79,10 @@ $orange: #f37d10;
 @media (max-width: 480px) {
   .product-container {
     width: 50%;
+    padding: 3px;
+  }
+
+  .product-wrapper {
+    padding: 0px;
   }
 }
