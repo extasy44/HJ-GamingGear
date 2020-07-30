@@ -29,19 +29,17 @@ class SearchBar extends React.Component {
     this.setState({
       keyword: event.target.value,
     });
-
-    console.log(this.state.keyword);
-
-    if (this.state.keyword.length >= 1) {
-      this.props.selectProducts(this.state.keyword);
-      this.props.history.push(`/search/${this.state.keyword}`);
-    }
   };
 
   componentWillUnmount = () => {
     this.setState({
       keyword: "",
     });
+
+    if (this.state.keyword.length >= 1) {
+      this.props.selectProducts(this.state.keyword);
+      this.props.history.push(`/search/${this.state.keyword}`);
+    }
   };
 
   render() {

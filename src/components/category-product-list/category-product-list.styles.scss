@@ -7,7 +7,6 @@ $orange: #f37d10;
 
   .product-wrapper {
     padding: 10px;
-    border: 1px solid #e9e9e9;
     width: 100%;
     height: 350px;
     display: flex;
@@ -17,13 +16,17 @@ $orange: #f37d10;
     align-items: center;
 
     &:hover {
-      border-color: orange;
+      .category-product-image {
+        transform: scale(1.1);
+      }
     }
 
     .category-product-image {
       width: 100%;
       height: 95%;
       position: relative;
+      transition: all 0.2s ease-in;
+      margin-bottom: 15px;
 
       .in-stock {
         color: green;
@@ -32,6 +35,7 @@ $orange: #f37d10;
         padding: 3px;
         width: 50%;
         text-align: center;
+        opacity: 0;
       }
 
       .outofstock {

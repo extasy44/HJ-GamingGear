@@ -22,8 +22,14 @@ const CartButton = ({ cartItemCount, totalAmount }) => {
           </div>
           <div className="cart-link">View Cart / Checkout</div>
         </div>
-
-        <Cart className="cart-icon" color="black" size={35} />
+        <Cart
+          className="cart-icon"
+          color="black"
+          size={35}
+          data-count={cartItemCount}
+        >
+          {cartItemCount}
+        </Cart>
       </div>
     </Link>
   );

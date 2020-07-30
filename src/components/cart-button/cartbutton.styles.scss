@@ -20,4 +20,32 @@
       color: orange;
     }
   }
+  .cart-icon {
+    animation: moveLeftRight 0.5s;
+  }
+}
+
+@-webkit-keyframes moveLeftRight {
+  0% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
