@@ -13,15 +13,24 @@ class SearchBar extends React.Component {
 
     this.state = {
       keyword: "",
+      message: "",
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { selectProducts, history } = this.props;
 
-    if (this.state.keyword.length >= 1) {
-      this.props.selectProducts(this.state.keyword);
-      this.props.history.push(`/search/${this.state.keyword}`);
+    if (this.state.keyword.length > 2) {
+      selectProducts(this.state.keyword);
+      history.push(`/search/${this.state.keyword}`);
+      this.setState({
+        keyword: "",
+      });
+    } else {
+      this.setState({
+        message: "Please provide more than 2 characters",
+      });
     }
   };
 
@@ -29,17 +38,6 @@ class SearchBar extends React.Component {
     this.setState({
       keyword: event.target.value,
     });
-  };
-
-  componentWillUnmount = () => {
-    this.setState({
-      keyword: "",
-    });
-
-    if (this.state.keyword.length >= 1) {
-      this.props.selectProducts(this.state.keyword);
-      this.props.history.push(`/search/${this.state.keyword}`);
-    }
   };
 
   render() {
