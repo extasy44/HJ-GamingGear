@@ -59,9 +59,9 @@ class CategoryPage extends React.Component {
     }, 500);
   };
 
-  sortProducts = (key) =>
+  sortProducts = (key, asc) =>
     this.setState({
-      products: _.sortBy(this.state.products, key),
+      products: _.orderBy(this.state.products, [key], [asc]),
     });
 
   handleChange = (e) => {
@@ -90,9 +90,9 @@ class CategoryPage extends React.Component {
       <Spinner />
     ) : (
       <div ref={this.myref} className="category-list-wrapper">
-        <h1 className="category-title">{this.state.category.title}</h1>
+        <h1 className="category-title">{this.state.category?.title}</h1>
         <p className="category-description">
-          {this.state.category.description}
+          {this.state.category?.description}
         </p>
         <div className="categry-toolbar">
           <CategorySort updateSortOption={this.sortProducts} />

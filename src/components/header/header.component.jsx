@@ -63,4 +63,5 @@ class Header extends React.Component {
 const mapStateToProps = ({ cart: { hidden } }) => ({
   hidden,
 });
+
 export default connect(mapStateToProps)(Header);

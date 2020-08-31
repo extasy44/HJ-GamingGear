@@ -28,6 +28,7 @@ class SearchBar extends React.Component {
         keyword: "",
       });
     } else {
+      alert("Please provide more than 2 characters");
       this.setState({
         message: "Please provide more than 2 characters",
       });
